@@ -131,9 +131,9 @@ public class MainActivity extends AppCompatActivity
             }
 
         } else if (id == R.id.nav_authentication) {
-            String promptText = "Test prompt";
             String nonce = UUID.randomUUID().toString();
-            byte[] extraData = (promptText + ":" + nonce).getBytes();
+            String promptText = "Test prompt: " + nonce;
+            byte[] extraData = promptText.getBytes();
 
             // Create confirmation prompt
             ConfirmationPrompt confirmationPrompt = new ConfirmationPrompt.Builder(this)
