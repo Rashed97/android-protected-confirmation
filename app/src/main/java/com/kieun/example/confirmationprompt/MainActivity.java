@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity
             }
 
         } else if (id == R.id.nav_authentication) {
-            String promptText = "prompt Text";
+            String promptText = "Test prompt";
             String nonce = UUID.randomUUID().toString();
             byte[] extraData = (promptText + ":" + nonce).getBytes();
 
@@ -179,8 +179,9 @@ public class MainActivity extends AppCompatActivity
                 confirmationPrompt.cancelPrompt();
             } catch (ConfirmationNotAvailableException e) {
                 Log.w(TAG, "Confirmation Prompt is not supported on this device");
+            } catch (IllegalArgumentException e) {
+                Log.w(TAG, "Illegal argument passed to confirmation UI");
             }
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
